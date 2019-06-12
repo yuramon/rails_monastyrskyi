@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ Product.average(:price)
+ 
+ Product.maximum(:price)
 
-Things you may want to cover:
+ Product.sum(:price)
 
-* Ruby version
+ Product.minimum(:price)
+ 
+ Product.where("name = 'Navitech'")
+ 
+ Product.where("price < 100")
+ 
+ Product.joins(:cart).where("cart_id = 1") // output all account1 products 
 
-* System dependencies
+ Product.joins(:cart).where("cart_id = 1").sum(:price) // outputs account1 sum price
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+ 
