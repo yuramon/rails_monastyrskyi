@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,45 +12,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_200159) do
-
+ActiveRecord::Schema.define(version: 20_190_613_200_159) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "accounts", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'accounts', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'age'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.bigint "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_carts_on_account_id"
+  create_table 'carts', force: :cascade do |t|
+    t.bigint 'account_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['account_id'], name: 'index_carts_on_account_id'
   end
 
-  create_table "friends", force: :cascade do |t|
-    t.bigint "account_id"
-    t.bigint "friend_account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id", "friend_account_id"], name: "index_friends_on_account_id_and_friend_account_id", unique: true
-    t.index ["account_id"], name: "index_friends_on_account_id"
-    t.index ["friend_account_id"], name: "index_friends_on_friend_account_id"
+  create_table 'friends', force: :cascade do |t|
+    t.bigint 'account_id'
+    t.bigint 'friend_account_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index %w[account_id friend_account_id], name: 'index_friends_on_account_id_and_friend_account_id', unique: true
+    t.index ['account_id'], name: 'index_friends_on_account_id'
+    t.index ['friend_account_id'], name: 'index_friends_on_friend_account_id'
   end
 
-  create_table "products", force: :cascade do |t|
-    t.bigint "cart_id"
-    t.string "name"
-    t.string "description"
-    t.float "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_products_on_cart_id"
+  create_table 'products', force: :cascade do |t|
+    t.bigint 'cart_id'
+    t.string 'name'
+    t.string 'description'
+    t.float 'price'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['cart_id'], name: 'index_products_on_cart_id'
   end
 
-  add_foreign_key "friends", "accounts"
-  add_foreign_key "friends", "accounts", column: "friend_account_id"
+  add_foreign_key 'friends', 'accounts'
+  add_foreign_key 'friends', 'accounts', column: 'friend_account_id'
 end

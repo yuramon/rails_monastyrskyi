@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Friend < ApplicationRecord
   belongs_to :account
-  belongs_to :friend_account, class_name: "Account"
+  belongs_to :friend_account, class_name: 'Account'
   after_create :create_inverse, unless: :has_inverse?
   after_destroy :destroy_inverses, if: :has_inverse?
 

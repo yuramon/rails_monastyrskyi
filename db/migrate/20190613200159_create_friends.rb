@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFriends < ActiveRecord::Migration[5.2]
   def change
     create_table :friends do |t|
@@ -8,6 +10,6 @@ class CreateFriends < ActiveRecord::Migration[5.2]
     end
 
     add_foreign_key :friends, :accounts, column: :friend_account_id
-    add_index :friends, [:account_id, :friend_account_id], unique: true
+    add_index :friends, %i[account_id friend_account_id], unique: true
   end
 end
