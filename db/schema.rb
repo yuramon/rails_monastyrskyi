@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_110949) do
+ActiveRecord::Schema.define(version: 2019_06_13_200159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2019_06_12_110949) do
     t.index ["account_id"], name: "index_carts_on_account_id"
   end
 
+  create_table "friends", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "friend_account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id", "friend_account_id"], name: "index_friends_on_account_id_and_friend_account_id", unique: true
+    t.index ["account_id"], name: "index_friends_on_account_id"
+    t.index ["friend_account_id"], name: "index_friends_on_friend_account_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.bigint "cart_id"
     t.string "name"
@@ -39,4 +49,6 @@ ActiveRecord::Schema.define(version: 2019_06_12_110949) do
     t.index ["cart_id"], name: "index_products_on_cart_id"
   end
 
+  add_foreign_key "friends", "accounts"
+  add_foreign_key "friends", "accounts", column: "friend_account_id"
 end
