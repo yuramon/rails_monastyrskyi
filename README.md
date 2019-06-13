@@ -18,3 +18,6 @@
 
  
  
+ yura = Account.find(1)
+ 
+ yura.friend_accounts << Account.find(2)
