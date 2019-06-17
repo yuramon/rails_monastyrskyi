@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'cart', to: 'carts#show', format: false
+  resources :products
   resources :accounts
 
-  root 'welcome#index'
+  root :to => "products#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,30 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Carts</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Account_id</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @carts.each do |cart| %>
+
+    <tr>
+      <td><%= cart.name %></td>
+      <td><%= cart.description %></td>
+      <td><%= cart.price %></td>
+      <td><%= cart.cart_id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
