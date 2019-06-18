@@ -21,3 +21,7 @@
  yura = Account.find(1)
  
  yura.friend_accounts << Account.find(2)
+
+Heroku:
+
+https://quiet-forest-60045.herokuapp.com/
