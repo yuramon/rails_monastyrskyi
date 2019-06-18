@@ -14,13 +14,13 @@
   </thead>
 
   <tbody>
-  <% @carts.each do |cart| %>
+  <% @products.each do |product| %>
 
     <tr>
-      <td><%= cart.name %></td>
-      <td><%= cart.description %></td>
-      <td><%= cart.price %></td>
-      <td><%= cart.cart_id %></td>
+      <td><%= product.name %></td>
+      <td><%= product.description %></td>
+      <td><%= product.price %></td>
+      <td><%= product.cart_id %></td>
     </tr>
   <% end %>
   </tbody>
