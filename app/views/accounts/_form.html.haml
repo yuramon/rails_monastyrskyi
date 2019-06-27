@@ -1,0 +1,18 @@
+= form_with(model: account, local: true) do |form|
+  - if account.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(account.errors.count, "error")
+        prohibited this account from being saved:
+      %ul
+        - account.errors.full_messages.each do |message|
+          %li= message
+  %form.form-inline
+    .form-group
+      = form.label :name
+      = form.text_field :name, class: "form-control"
+    .form-group
+      = form.label :age
+      = form.number_field :age, class: "form-control"
+    .form-group
+      = form.submit class: "btn btn-default"

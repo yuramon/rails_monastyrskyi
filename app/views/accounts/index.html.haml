@@ -1,0 +1,17 @@
+%p#notice= notice
+%h1 Accounts
+%table.table
+  %thead
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Age
+  %tbody
+    - @accounts.each do |account|
+      %tr
+        %td= account.name
+        %td= account.age
+        %td= link_to 'Show', account, class: "btn btn-primary"
+        %td= link_to 'Edit', edit_account_path(account), class: "btn btn-success"
+        %td= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+%br/
+= link_to 'New Account', new_account_path, class: "btn btn-primary"
