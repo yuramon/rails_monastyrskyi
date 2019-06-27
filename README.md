@@ -21,3 +21,9 @@
  yura = Account.find(1)
  
  yura.friend_accounts << Account.find(2)
+ 
+ git push heroku branch
+ 
+ Heroku:
+ 
+ https://quiet-forest-60045.herokuapp.com/
