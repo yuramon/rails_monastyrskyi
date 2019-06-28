@@ -1,0 +1,17 @@
+%p#notice= notice
+%h1 Carts
+%table.table
+  %thead
+    %tr
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Description
+      %th{:scope => "col"} Price
+      %th{:scope => "col"} Account_id
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product.name
+        %td= product.description
+        %td= product.price
+        %td= product.cart_id
+%br/

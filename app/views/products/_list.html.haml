@@ -1,0 +1,21 @@
+.site-wrap
+  %p#notice= notice
+  %h1 Products
+  %table.table
+    %thead
+      %tr
+        %th{:scope => "col"} Name
+        %th{:scope => "col"} Description
+        %th{:scope => "col"} Price
+    %tbody
+      - @products.each do |product|
+        %thead
+          %tr
+            %td= product.name
+            %td= product.description
+            %td= product.price
+            %td= link_to 'Show', product, class: "btn btn-primary"
+            %td= link_to 'Edit', edit_product_path(product), class: "btn btn-success"
+            %td= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+  %br/
+  = link_to 'New Product', new_product_path, class: "btn btn-primary"
